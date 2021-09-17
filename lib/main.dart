@@ -48,6 +48,13 @@ class BizCardApp extends StatelessWidget {
                   fontFamily: 'SourceSansPro-Regular',
                 ),
               ),
+              SizedBox(
+                height: 20.0,
+                width: 150.0,
+                child: Divider(
+                  color: kGreyColor,
+                ),
+              ),
               ContactCard(icon: Icons.phone, text: '+233 24 762 7952'),
               ContactCard(
                 icon: Icons.email,
