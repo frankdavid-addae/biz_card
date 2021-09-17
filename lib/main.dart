@@ -6,6 +6,9 @@ void main() {
   runApp(const BizCardApp());
 }
 
+const kDarkColor = Color(0xFF23414E);
+const kGreyColor = Color(0xFFD9D9D9);
+
 class BizCardApp extends StatelessWidget {
   const BizCardApp({Key? key}) : super(key: key);
 
@@ -45,51 +48,49 @@ class BizCardApp extends StatelessWidget {
                   fontFamily: 'SourceSansPro-Regular',
                 ),
               ),
-              Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(6.0),
-                ),
-                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
-                color: kGreyColor.withOpacity(0.8),
-                child: ListTile(
-                  horizontalTitleGap: 5.0,
-                  leading: Icon(
-                    Icons.phone,
-                    color: kDarkColor,
-                  ),
-                  title: Text(
-                    '+233 24 762 7952',
-                    style: TextStyle(
-                      color: kDarkColor,
-                      fontSize: 20.0,
-                      fontFamily: 'SourceSansPro-Regular',
-                    ),
-                  ),
-                ),
-              ),
-              Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(6.0),
-                ),
-                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
-                color: kGreyColor.withOpacity(0.8),
-                child: ListTile(
-                  horizontalTitleGap: 5.0,
-                  leading: Icon(
-                    Icons.email,
-                    color: kDarkColor,
-                  ),
-                  title: Text(
-                    'frankdavid.addae@gmail.com',
-                    style: TextStyle(
-                      color: kDarkColor,
-                      fontSize: 20.0,
-                      fontFamily: 'SourceSansPro-Regular',
-                    ),
-                  ),
-                ),
+              ContactCard(icon: Icons.phone, text: '+233 24 762 7952'),
+              ContactCard(
+                icon: Icons.email,
+                text: 'frankdavid.addae@gmail.com',
               ),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class ContactCard extends StatelessWidget {
+  const ContactCard({
+    Key? key,
+    required this.text,
+    required this.icon,
+  }) : super(key: key);
+
+  final String text;
+  final IconData icon;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(6.0),
+      ),
+      margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+      color: kGreyColor.withOpacity(0.8),
+      child: ListTile(
+        horizontalTitleGap: 5.0,
+        leading: Icon(
+          icon,
+          color: kDarkColor,
+        ),
+        title: Text(
+          text,
+          style: TextStyle(
+            color: kDarkColor,
+            fontSize: 20.0,
+            fontFamily: 'SourceSansPro-Regular',
           ),
         ),
       ),
